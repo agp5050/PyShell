@@ -194,3 +194,4 @@ if __name__ == '__main__':
     print '*'*40
     ftpCl.dec(encPath,'eee_dec_True2.zip')#解压Enc文件至特定目录，查看手动解压查看是否和原文件内容一致。
     print '*' * 40
+    
