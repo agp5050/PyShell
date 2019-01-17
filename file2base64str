@@ -1,0 +1,23 @@
+import requests
+import json
+import base64
+class test:
+    def sendMail(self):
+        restUri = "http://127.0.0.1:9025/com/jfbank/ai/sendmailWithAttachString"
+        with open("20190114-堡垒机账号申请表.xlsx",'rb') as file:
+            jsonStr=base64.b64encode(file.read())
+            print(type(jsonStr))
+        headerV={'Content-Type':'application/json; charset=UTF-8'}
+        jsonData={"base64Content":bytes.decode(jsonStr),
+                  "bcc": "agp@agp.com",
+                  "cc": "agp@agp.com",
+                  "context": "aaabbb",
+                  "fileName": "20190114-堡垒机账号申请表.xlsx",
+                  "subject": "20190114-堡垒机账号申请表.xlsx",
+                  "to": "agp@agp.com"
+                  }
+        print(jsonStr)
+        r=requests.post(restUri,data=json.dumps(jsonData),headers=headerV)
+        print(r,"feedback")
+        
+ #将file以base64的模式发送给api接收方。 不用直接2进制流发送。
