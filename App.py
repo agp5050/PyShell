@@ -22,7 +22,7 @@ def hello_test(name, age):
 def hello_admin(name):
     return 'Hello admin %s' % name
 
-
+# 动态加载modulemodule
 @app.route('/import/<module_name>')
 def auto_import(module_name):
     try:
@@ -34,7 +34,7 @@ def auto_import(module_name):
     return success_str
 
 
-# 动态加载module并且动态调用module
+# 动态调用module
 @app.route('/run/<module_name>/<paras>')
 def auto_run_module(module_name, paras):
     module_dict.get(module_name).run(paras)
